@@ -1,12 +1,14 @@
 import {
   Car,
   Cpu,
+  CupSoda,
   Factory,
   Gem,
   Palette,
   Pill,
   ShoppingBag,
   Snowflake,
+  Stethoscope,
   Store,
   Wine,
   type LucideIcon,
@@ -26,10 +28,12 @@ const icons: Record<string, LucideIcon> = {
   Electronics: Cpu,
   "Fine art": Palette,
   Perishables: Snowflake,
+  Medical: Stethoscope,
+  Beverages: CupSoda,
 };
 
 function Chip({ name }: { name: string }) {
-  const Icon = icons[name];
+  const Icon = icons[name] ?? Store;
   return (
     <div className="flex items-center gap-3 rounded-full border border-hairline bg-canvas py-2.5 pr-6 pl-2.5">
       <span className="flex h-10 w-10 items-center justify-center rounded-full bg-mist text-brand-teal">
@@ -47,7 +51,7 @@ export function Industries() {
       <div className="container-page">
         <SectionHeading
           title="Industries we serve."
-          lead="From fashion and fine art to pharmaceuticals and perishables, each sector gets handling that fits its cargo."
+          lead="From fashion and fine art to medical supplies and beverages, each sector gets handling that fits its cargo."
           align="center"
         />
       </div>

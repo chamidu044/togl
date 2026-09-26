@@ -8,10 +8,13 @@ export const FlipWords = ({
   words,
   duration = 2600,
   className,
+  align = "left",
 }: {
   words: string[];
   duration?: number;
   className?: string;
+  /** "center" keeps a changing word centred inside the reserved width. */
+  align?: "left" | "center";
 }) => {
   const [index, setIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -30,7 +33,7 @@ export const FlipWords = ({
   return (
     <span className="relative inline-block">
       {/* Reserve width of the longest word so the line never jumps */}
-      <span aria-hidden className="invisible whitespace-nowrap">
+      <span aria-hidden className={cn("invisible whitespace-nowrap", className)}>
         {words.reduce((a, b) => (b.length > a.length ? b : a), "")}
       </span>
       <AnimatePresence onExitComplete={() => setIsAnimating(false)}>
@@ -48,7 +51,8 @@ export const FlipWords = ({
             position: "absolute",
           }}
           className={cn(
-            "absolute inset-y-0 left-0 z-10 inline-block whitespace-nowrap text-left",
+            "absolute inset-y-0 z-10 inline-block whitespace-nowrap",
+            align === "center" ? "inset-x-0 text-center" : "left-0 text-left",
             className,
           )}
         >
@@ -60,7 +64,7 @@ export const FlipWords = ({
               transition={{ delay: i * 0.05, duration: 0.2 }}
               className="inline-block"
             >
-              {letter}
+              {letter === " " ? "\u00A0" : letter}
             </motion.span>
           ))}
         </motion.span>

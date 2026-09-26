@@ -1,6 +1,7 @@
 /**
  * Single source of truth for all site copy.
- * Facts are taken from trans-orbit.lk; wording is edited for the new site.
+ * Facts are taken from trans-orbit.lk and the TOGL company profile;
+ * wording is edited for the new site.
  */
 
 export const company = {
@@ -12,8 +13,28 @@ export const company = {
   status: "Private Limited Liability",
   scope: "International & national logistics management",
   url: "https://www.trans-orbit.lk",
+  promise: "We move possibilities, with trust.",
   description:
-    "Freight forwarding by sea, air, road and rail from Colombo, Sri Lanka. Customs brokerage, dangerous goods, cross trade and supply chain solutions since 2011.",
+    "Air and sea freight, LCL consolidation, customs brokerage and warehousing from Colombo, Sri Lanka. Reliable freight solutions worldwide since 2011.",
+  registrations: [
+    { label: "Business registration no.", value: "PV 79220" },
+    { label: "DGMS registration", value: "Class A" },
+    { label: "Freight forwarder registration", value: "FFA01048-2023" },
+    { label: "Exchange control registration", value: "06/07/009/0415" },
+  ],
+};
+
+export const leadership = {
+  ceo: {
+    name: "Janaka Alexander",
+    title: "Chief Executive Officer",
+    summary:
+      "An industry veteran with more than 34 years of leadership experience, having held key positions in sales and commercial management.",
+  },
+  structure: [
+    "TOGL is managed by the Chief Executive Officer, who reports to a board of directors that includes one executive director, who is also the Chairman.",
+    "Day-to-day management is entrusted to the corporate management team, headed by the CEO.",
+  ],
 };
 
 export const contact = {
@@ -102,7 +123,7 @@ export const services: Service[] = [
     includes: [
       "Full container load (FCL)",
       "Less than container load (LCL) consolidation",
-      "Port-to-port and door-to-door",
+      "Customs brokerage at origin and destination",
       "Bills of lading and shipping documentation",
     ],
     image: "/images/sea-aerial.jpg",
@@ -168,56 +189,86 @@ export const services: Service[] = [
   {
     slug: "documents",
     title: "Document Logistics",
-    category: "Trade documents",
+    category: "Document secure solution",
     summary:
-      "Time-critical trade documents delivered securely, so your cargo is never held up by paperwork.",
+      "Highly classified documents processed promptly, efficiently and securely, from storage to disposition.",
     body: [
-      "Original bills of lading, certificates of origin and letters of credit often decide when cargo can be released. We move them securely and on time.",
-      "We track each consignment from pickup to signature and coordinate with banks, consignees and customs so nothing waits on a missing original.",
+      "We help businesses handle their most sensitive documents through central management, from storage through to final disposition.",
+      "Every step is handled promptly and securely, so confidential paperwork is always where it should be, and nowhere else.",
     ],
     includes: [
-      "Original bills of lading and certificates of origin",
-      "Letters of credit and bank documents",
-      "Tracked pickup and signed delivery",
-      "Coordination with banks and consignees",
+      "Secure handling of classified documents",
+      "Central management from storage to disposition",
+      "Prompt, efficient processing",
+      "Trade and shipping documents handled with care",
     ],
     image: "/images/documents.jpg",
     imageAlt: "Shipping forms and documents on a desk",
   },
 ];
 
-export const modes = [
-  {
-    name: "Sea",
-    detail: "FCL and LCL ocean freight",
-    image: "/images/sea-wake.jpg",
-    imageAlt: "Container ship leaving a white wake on dark blue water",
-  },
-  {
-    name: "Air",
-    detail: "Consolidated and time-critical",
-    image: "/images/air-loading.jpg",
-    imageAlt: "Cargo being loaded onto an aircraft",
-  },
-  {
-    name: "Road",
-    detail: "Domestic and cross-border haulage",
-    image: "/images/road.jpg",
-    imageAlt: "Truck driving along a winding highway",
-  },
-  {
-    name: "Rail",
-    detail: "Container rail connections",
-    image: "/images/rail.jpg",
-    imageAlt: "Container trains in a rail yard",
-  },
+/** What TOGL specialises in, per the company profile. */
+export const specialisms = [
+  { name: "Sea freight", detail: "FCL and LCL consolidation" },
+  { name: "Air freight", detail: "Consolidated and time-critical" },
+  { name: "Customs brokerage", detail: "Import and export clearance" },
+  { name: "Warehousing", detail: "Storage and transport" },
 ] as const;
+
+/** Specialist solutions from "Why partner with us" in the company profile. */
+export const specialistSolutions = [
+  {
+    title: "Trade logistics and export factory",
+    description:
+      "Lower total costs and faster response through packaging, customs clearance, overseas transport and account settlement for clients distributing worldwide.",
+  },
+  {
+    title: "Sales logistics",
+    description:
+      "Third-party logistics across a variety of transport modes, including parcel delivery, to support manufacturers' and distributors' sales growth.",
+  },
+  {
+    title: "Service parts logistics",
+    description:
+      "Service parts supply, repair of original equipment and after-sales services, including recall campaigns.",
+  },
+  {
+    title: "Medical logistics",
+    description:
+      "Safe distribution for medical equipment and drug manufacturers and medical institutions, without shipment errors or damage.",
+  },
+  {
+    title: "Fine arts transport",
+    description:
+      "Specialised packaging and transport of art objects for exhibitors and event promoters, for the safe, secure display of priceless works.",
+  },
+  {
+    title: "Overseas relocation support",
+    description:
+      "Moving, visa applications, real estate referrals and language training for employees that client companies assign overseas.",
+  },
+  {
+    title: "Document secure solution",
+    description:
+      "Highly classified documents processed promptly and securely, through central management from storage to disposition.",
+  },
+  {
+    title: "Beverage transportation",
+    description:
+      "Just-in-time delivery and lower distribution costs, with handling specialised for glass bottles, cans and PET bottles.",
+  },
+  {
+    title: "Packing technology",
+    description:
+      "Packing materials and techniques for specific products that support sales growth, cost reduction and environmental conservation.",
+  },
+];
 
 export const stats = [
   { value: 2011, label: "Moving cargo since", format: "year" as const },
   { value: 100, suffix: "+", label: "Years of combined customs expertise" },
-  { value: 4, label: "Modes of transport: sea, air, road and rail" },
-  { value: 2, label: "Offices in Colombo" },
+  { value: 34, suffix: "+", label: "Years of industry leadership from our CEO" },
+  { value: 2, label: "Offices in Sri Lanka" },
 ];
 
 export const processSteps = [
@@ -245,7 +296,7 @@ export const processSteps = [
   {
     title: "Transit with visibility",
     description:
-      "Web-enabled systems give you real-time visibility of your shipment across sea, air, road and rail.",
+      "Fully web-enabled systems give you real-time visibility of your shipment, by sea or air.",
     image: "/images/sea-open.jpg",
     imageAlt: "Container ship crossing open water, seen from above",
   },
@@ -253,8 +304,8 @@ export const processSteps = [
     title: "Clearance and delivery",
     description:
       "We clear the goods at destination and deliver to your door, warehouse or end customer.",
-    image: "/images/road-dusk.jpg",
-    imageAlt: "Trucks on a highway at dusk",
+    image: "/images/warehouse-aisle.jpg",
+    imageAlt: "Warehouse aisle stocked with cartons ready for delivery",
   },
 ];
 
@@ -269,13 +320,15 @@ export const industries = [
   "Electronics",
   "Fine art",
   "Perishables",
+  "Medical",
+  "Beverages",
 ];
 
 export const reasons = [
   {
     title: "People who know customs",
     description:
-      "Our team brings more than 100 years of combined experience in customs brokerage for import and export.",
+      "Our team brings more than 100 years of combined customs brokerage experience, led by a CEO with over 34 years in the industry.",
   },
   {
     title: "Dangerous goods, handled properly",
@@ -338,11 +391,11 @@ export const principles = [
   },
   {
     title: "Vision",
-    body: "As a non-asset-based company, we invest in people and systems. By growing organically rather than through acquisition, we give clients and employees peace of mind that their day-to-day business won't be disrupted, whichever country we're working in.",
+    body: "As a non-asset-based company, we invest in people and systems. By growing organically rather than through acquisition, we give clients and employees peace of mind that their day-to-day business won't be disrupted, and we keep our systems' integrity intact. What matters is the quality and consistency of our service, whichever country we're working in.",
   },
   {
     title: "Objective",
-    body: "To provide complete supply chain solutions: customs brokerage and freight forwarding, fulfilment and e-commerce fulfilment, small parcel delivery, transportation management, and value-added warehousing.",
+    body: "To provide complete supply chain solutions: customs brokerage and freight forwarding, fulfilment and e-commerce fulfilment, real estate services, small parcel delivery, transportation and transportation management, and value-added warehousing.",
   },
 ];
 

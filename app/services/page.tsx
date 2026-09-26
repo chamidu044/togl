@@ -2,38 +2,57 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import {
   Building2,
+  Check,
   Container,
+  CupSoda,
+  Factory,
+  FileLock2,
+  Frame,
+  HeartPulse,
+  Luggage,
   Package,
+  PackageOpen,
   Route,
   ShoppingCart,
   Stamp,
-  Check,
+  TrendingUp,
+  Wrench,
 } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { ServicesNav } from "@/components/sections/services/services-nav";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { PillLink } from "@/components/ui/pill-link";
-import { Reveal } from "@/components/motion/reveal";
 import { CtaBand } from "@/components/sections/cta-band";
-import { modes, services, solutions } from "@/lib/content";
+import { services, solutions, specialistSolutions } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Air freight, sea freight (FCL and LCL), hazardous cargo, cross trade, service parts and document logistics, plus customs brokerage and warehousing from Colombo, Sri Lanka.",
+    "Air freight, sea freight (FCL and LCL), hazardous cargo, cross trade, service parts and document logistics, plus customs brokerage, warehousing and specialist solutions from Colombo, Sri Lanka.",
   alternates: { canonical: "/services" },
 };
 
 const solutionIcons = [Stamp, Route, ShoppingCart, Package, Container, Building2];
+const specialistIcons = [
+  Factory,
+  TrendingUp,
+  Wrench,
+  HeartPulse,
+  Frame,
+  Luggage,
+  FileLock2,
+  CupSoda,
+  PackageOpen,
+];
 
 export default function ServicesPage() {
   return (
     <>
       <PageHeader
         title="Freight forwarding, end to end."
-        lead="Six specialist services and a complete set of supply chain solutions, planned around your cargo, your timeline and your budget."
+        lead="Air and sea freight, customs brokerage, warehousing and specialist solutions, planned around your cargo, your timeline and your budget."
       />
 
       <ServicesNav items={services.map(({ slug, title }) => ({ slug, title }))} />
@@ -90,34 +109,26 @@ export default function ServicesPage() {
         })}
       </div>
 
-      {/* Modes */}
+      {/* Specialist solutions (company profile: "Why partner with us") */}
       <section className="section-y bg-mist">
         <div className="container-page">
           <SectionHeading
-            title="Four ways to move."
-            lead="We combine sea, air, road and rail to balance speed and cost for every shipment."
+            title="Specialist solutions."
+            lead="Logistics shaped around particular industries and needs, from medical equipment and fine art to beverages and overseas relocation."
           />
-          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {modes.map((mode, i) => (
-              <Reveal as="li" key={mode.name} delay={i * 0.06}>
-                <div className="group overflow-hidden rounded-panel bg-canvas">
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={mode.image}
-                      alt={mode.imageAlt}
-                      fill
-                      sizes="(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-tagline text-ink">{mode.name}</h3>
-                    <p className="text-body mt-1 text-ink-muted">{mode.detail}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </ul>
+          <BentoGrid className="mt-12 md:auto-rows-auto">
+            {specialistSolutions.map((s, i) => {
+              const Icon = specialistIcons[i];
+              return (
+                <BentoGridItem
+                  key={s.title}
+                  title={s.title}
+                  description={s.description}
+                  icon={<Icon className="h-5 w-5" strokeWidth={1.8} />}
+                />
+              );
+            })}
+          </BentoGrid>
         </div>
       </section>
 

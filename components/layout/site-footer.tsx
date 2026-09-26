@@ -34,8 +34,8 @@ export function SiteFooter() {
               className="h-auto w-[200px]"
             />
             <p className="text-caption mt-6 max-w-xs">
-              Freight forwarding by sea, air, road and rail from Colombo, Sri
-              Lanka, since {company.founded}.
+              Air and sea freight, customs brokerage and warehousing from
+              Colombo, Sri Lanka, since {company.founded}.
             </p>
           </div>
 

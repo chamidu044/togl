@@ -8,12 +8,19 @@ import { TracingBeam } from "@/components/ui/tracing-beam";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
 import { CtaBand } from "@/components/sections/cta-band";
-import { company, contact, industries, principles, solutions } from "@/lib/content";
+import {
+  company,
+  contact,
+  industries,
+  leadership,
+  principles,
+  solutions,
+} from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Trans Orbit Global Logistics is a non-asset-based freight forwarder in Colombo, Sri Lanka, founded in 2011. Meet the company, our mission and our people.",
+    "Trans Orbit Global Logistics is a non-asset-based freight forwarder in Colombo, Sri Lanka, founded in 2011 and led by CEO Janaka Alexander. Meet the company, our mission and our people.",
   alternates: { canonical: "/about" },
 };
 
@@ -22,6 +29,7 @@ const corporate = [
   { label: "Status", value: company.status },
   { label: "Founded", value: String(company.founded) },
   { label: "Scope of business", value: company.scope },
+  ...company.registrations,
   { label: "Operational address", value: contact.offices[0].lines.join(", ") },
 ];
 
@@ -30,7 +38,7 @@ export default function AboutPage() {
     <>
       <PageHeader
         title="Built on people, not assets."
-        lead={`Since ${company.founded}, Trans Orbit Global Logistics has moved cargo by sea, air, road and rail for importers and exporters in Sri Lanka and around the world.`}
+        lead={`Since ${company.founded}, Trans Orbit Global Logistics has delivered reliable freight solutions worldwide, specialising in air and sea freight, customs brokerage, warehousing and transport.`}
       />
 
       <div className="container-page">
@@ -155,8 +163,43 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* People */}
+      {/* Leadership */}
       <section className="section-y bg-canvas">
+        <div className="container-page grid gap-10 md:grid-cols-12 md:gap-12">
+          <div className="md:col-span-5">
+            <SectionHeading
+              title="Leadership."
+              lead="Led by an industry veteran and governed by a board of directors."
+            />
+          </div>
+          <Reveal className="md:col-span-7">
+            <div className="relative overflow-hidden rounded-panel border border-hairline bg-canvas p-7 md:p-10">
+              <span aria-hidden className="bg-gradient-orbit absolute inset-x-0 top-0 h-1" />
+              <p className="text-caption-strong text-brand-teal">{leadership.ceo.title}</p>
+              <h3 className="text-display-lg mt-2 text-ink">Mr. {leadership.ceo.name}</h3>
+              <p className="text-lead mt-4 text-ink">{leadership.ceo.summary}</p>
+              <p className="text-body mt-4 text-ink-muted">
+                Under his leadership our team provides seamless, cost-effective supply
+                chain solutions tailored to each client&apos;s needs, with deep expertise
+                in air and sea freight, LCL consolidation, customs brokerage and
+                warehousing.
+              </p>
+              <ul className="mt-8 space-y-3 border-t border-hairline pt-6">
+                {leadership.structure.map((line) => (
+                  <li key={line} className="text-body flex gap-3 text-ink-muted">
+                    <span className="bg-gradient-orbit mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full" />
+                    {line}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-tagline mt-8 text-brand-navy">{company.promise}</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* People */}
+      <section className="section-y bg-mist">
         <div className="container-page grid items-center gap-10 md:grid-cols-2 md:gap-16">
           <div className="relative aspect-[4/3] overflow-hidden rounded-panel shadow-product">
             <Image
@@ -182,12 +225,12 @@ export default function AboutPage() {
       </section>
 
       {/* Corporate information */}
-      <section className="section-y bg-mist">
+      <section className="section-y bg-canvas">
         <div className="container-text">
           <Reveal>
             <h2 className="text-display-lg text-ink">Corporate information</h2>
           </Reveal>
-          <dl className="mt-8 divide-y divide-hairline rounded-panel border border-hairline bg-canvas px-6 md:px-8">
+          <dl className="mt-8 divide-y divide-hairline rounded-panel border border-hairline bg-pearl px-6 md:px-8">
             {corporate.map((row) => (
               <div key={row.label} className="grid gap-1 py-5 sm:grid-cols-3 sm:gap-6">
                 <dt className="text-caption text-ink-subtle">{row.label}</dt>

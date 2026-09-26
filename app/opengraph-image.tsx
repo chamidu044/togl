@@ -37,7 +37,7 @@ export default async function OpengraphImage() {
               Access to the world.
             </div>
             <div style={{ fontSize: 30, color: "#4f5a6d", marginTop: 24, lineHeight: 1.35 }}>
-              Freight forwarding by sea, air, road and rail from Colombo, Sri Lanka.
+              Air and sea freight, customs brokerage and warehousing from Colombo, Sri Lanka.
             </div>
           </div>
           <img src={`data:image/png;base64,${logo}`} width={440} height={256} alt="" />

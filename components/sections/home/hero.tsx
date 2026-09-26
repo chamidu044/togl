@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Plane, Ship, TrainFront, Truck } from "lucide-react";
+import { Plane, Ship, Stamp, Warehouse } from "lucide-react";
 import { FlipWords } from "@/components/ui/flip-words";
 import { Globe } from "@/components/ui/globe";
 import { PillLink } from "@/components/ui/pill-link";
@@ -9,11 +9,11 @@ import { colombo, company, hubs } from "@/lib/content";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const modeChips = [
+const specialismChips = [
   { name: "Sea", detail: "FCL and LCL", icon: Ship },
-  { name: "Air", detail: "Consolidated", icon: Plane },
-  { name: "Road", detail: "Door to door", icon: Truck },
-  { name: "Rail", detail: "Container rail", icon: TrainFront },
+  { name: "Air", detail: "Consolidation", icon: Plane },
+  { name: "Customs", detail: "Brokerage", icon: Stamp },
+  { name: "Warehousing", detail: "Storage and transport", icon: Warehouse },
 ];
 
 export function Hero() {
@@ -31,13 +31,15 @@ export function Hero() {
         </h1>
 
         <p className="text-lead-airy rise mx-auto mt-6 max-w-2xl text-pretty text-ink-muted [--rise-blur:0px] [--rise-delay:200ms] [--rise-y:16px]">
-          Freight forwarding by{" "}
+          Your trusted partner for
+          <br />
           <FlipWords
-            words={["sea", "air", "road", "rail"]}
+            words={["sea freight", "air freight", "customs brokerage", "warehousing"]}
+            align="center"
             className="font-semibold text-brand-navy"
-          />{" "}
-          from Colombo, Sri Lanka. Handled by the same experienced team since{" "}
-          {company.founded}.
+          />
+          <br />
+          from Colombo, Sri Lanka, since {company.founded}.
         </p>
 
         <div className="rise mt-9 flex flex-wrap items-center justify-center gap-3 [--rise-blur:0px] [--rise-delay:350ms] [--rise-y:12px]">
@@ -69,15 +71,15 @@ export function Hero() {
           className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-canvas"
         />
 
-        {/* Transport modes — glass dock floating over the globe */}
+        {/* What we specialise in — glass dock floating over the globe */}
         <motion.ul
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9, ease }}
-          aria-label="Transport modes"
+          aria-label="What we specialise in"
           className="glass absolute inset-x-4 bottom-4 mx-auto grid max-w-3xl grid-cols-4 gap-1 rounded-[22px] p-1.5 md:bottom-10 md:rounded-full"
         >
-          {modeChips.map(({ name, detail, icon: Icon }) => (
+          {specialismChips.map(({ name, detail, icon: Icon }) => (
             <li
               key={name}
               className="flex flex-col items-center gap-1.5 rounded-2xl px-1 py-2 transition-colors duration-300 hover:bg-white/80 sm:flex-row sm:gap-3 sm:rounded-full sm:px-3 sm:py-2.5 md:px-4"
