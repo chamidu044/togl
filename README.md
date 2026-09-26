@@ -59,16 +59,15 @@ Push the repository to GitHub and import it in Vercel. The framework preset is d
   - Full-bleed sections alternate white and mist, with pill-shaped CTAs.
 - **Colors:** sampled from the logo. Tokens are in [`app/globals.css`](app/globals.css).
   - Navy `#243F7A`, blue `#2B519A`, teal `#1D6B91`, green `#00A558`, lime `#A7D046`.
-  - The logo's lime-to-navy gradient is used sparingly: the hero globe, map lanes, glows and the scroll progress line.
+  - The logo's lime-to-navy gradient is used sparingly: map lanes, glows, slideshow progress and the scroll progress line.
 - **Aceternity UI components** live in [`components/ui`](components/ui), re-themed to the brand. All are light theme only:
   - Resizable Navbar (glass pill)
   - Flip Words, Text Generate Effect
-  - Globe (cobe), World Map
+  - World Map, Container Scroll (hero showcase)
   - Apple Cards Carousel, Sticky Scroll Reveal, Infinite Moving Cards
   - Bento Grid, Glowing Effect, Card Spotlight
   - Tracing Beam, Pointer Highlight
   - Hover Border Gradient, Stateful Button, Signup Form inputs
-- **Hero globe:** cobe draws land dots black on a light globe. A logo-gradient layer with `mix-blend-mode: lighten` recolours them.
 - **Motion:** respects `prefers-reduced-motion` throughout.
 
 ## Credits
