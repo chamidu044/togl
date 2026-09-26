@@ -1,0 +1,257 @@
+@import "tailwindcss";
+
+/*
+ * Trans Orbit design tokens.
+ * Structure and type follow apple.design.md; colors are sampled from the TOGL logo.
+ */
+@theme {
+  /* Brand — sampled from the logo globe and wordmark */
+  --color-brand-navy: #243f7a;
+  --color-brand-blue: #2b519a;
+  --color-brand-teal: #1d6b91;
+  --color-brand-green: #00a558;
+  --color-brand-lime: #a7d046;
+  --color-brand-sky: #8fb0ea;
+
+  /* Text */
+  --color-ink: #0f1a2e;
+  --color-ink-muted: #4f5a6d;
+  --color-ink-subtle: #647082;
+
+  /* Surfaces */
+  --color-canvas: #ffffff;
+  --color-mist: #f4f6fa;
+  --color-pearl: #fafbfd;
+  --color-hairline: #e3e8ef;
+  --color-tile-navy: #0e1f42;
+  --color-tile-navy-2: #132a55;
+
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    var(--font-inter), system-ui, "Segoe UI", sans-serif;
+
+  --radius-card: 18px;
+  --radius-panel: 28px;
+
+  --shadow-product: 3px 5px 30px rgba(15, 26, 46, 0.16);
+  --shadow-glass:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 0 0 1px rgba(15, 26, 46, 0.06),
+    0 8px 32px -8px rgba(15, 26, 46, 0.14), 0 2px 6px rgba(15, 26, 46, 0.04);
+
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(calc(-50% - 0.5rem));
+    }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(var(--rise-y, 24px));
+      filter: blur(var(--rise-blur, 8px));
+    }
+  }
+}
+
+:root {
+  --gradient-orbit: linear-gradient(
+    90deg,
+    #a7d046 0%,
+    #00a558 28%,
+    #1d6b91 55%,
+    #2b519a 78%,
+    #243f7a 100%
+  );
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.47;
+    letter-spacing: -0.022em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-brand-blue) 18%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-blue);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  section[id] {
+    scroll-margin-top: 96px;
+  }
+}
+
+/* Type ladder — apple.design.md (weights 300/400/600/700, no 500) */
+@utility text-hero {
+  font-size: clamp(2.75rem, 1.2rem + 5.6vw, 5.5rem);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+}
+@utility text-display-xl {
+  font-size: clamp(2.25rem, 1.3rem + 3.4vw, 3.75rem);
+  font-weight: 600;
+  line-height: 1.07;
+  letter-spacing: -0.03em;
+}
+@utility text-display-lg {
+  font-size: clamp(2rem, 1.45rem + 1.9vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.022em;
+}
+@utility text-display-md {
+  font-size: clamp(1.5rem, 1.25rem + 0.9vw, 2.125rem);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+@utility text-lead {
+  font-size: clamp(1.25rem, 1.05rem + 0.7vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.012em;
+}
+@utility text-lead-airy {
+  font-size: clamp(1.1875rem, 1.05rem + 0.45vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+@utility text-tagline {
+  font-size: 1.3125rem;
+  font-weight: 600;
+  line-height: 1.19;
+  letter-spacing: -0.012em;
+}
+@utility text-body {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.47;
+  letter-spacing: -0.022em;
+}
+@utility text-body-strong {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.24;
+  letter-spacing: -0.022em;
+}
+@utility text-caption {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: -0.016em;
+}
+@utility text-caption-strong {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.29;
+  letter-spacing: -0.016em;
+}
+@utility text-fine {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.33;
+  letter-spacing: -0.01em;
+}
+
+@utility text-gradient-orbit {
+  background-image: var(--gradient-orbit);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient-orbit {
+  background-image: var(--gradient-orbit);
+}
+
+/* Frosted glass used by the navbar and floating chrome */
+@utility glass {
+  background-color: rgb(255 255 255 / 0.62);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: var(--shadow-glass);
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 48rem) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility container-text {
+  width: 100%;
+  max-width: 980px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 48rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Left inset that lines a full-bleed scroller up with .container-page */
+@utility carousel-gutter {
+  --gutter: 1.25rem;
+  @media (width >= 48rem) {
+    --gutter: max(2rem, calc((100vw - 1280px) / 2 + 2rem));
+  }
+}
+
+@utility section-y {
+  padding-block: 3.5rem;
+  @media (width >= 48rem) {
+    padding-block: 6rem;
+  }
+}
+
+/*
+ * CSS-only entrance for above-the-fold content. Runs on first paint without
+ * waiting for hydration, so the headline is the LCP element immediately.
+ * Delay with [--rise-delay:200ms].
+ */
+@utility rise {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--rise-delay, 0ms) both;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@utility press {
+  transition:
+    transform 160ms ease,
+    background-color 200ms ease,
+    color 200ms ease,
+    box-shadow 200ms ease;
+  &:active {
+    transform: scale(0.96);
+  }
+}
