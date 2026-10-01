@@ -8,7 +8,7 @@ import { contact } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get a freight quote or ask a question. Email info@trans-orbit.lk, call +94 11 266 4811, or visit our offices in Colombo 10, Sri Lanka.",
+    "Get a freight quote or ask a question. Email info@trans-orbit.lk, call +94 11 266 4811, or visit our office in Colombo 10, Sri Lanka.",
   alternates: { canonical: "/contact" },
 };
 

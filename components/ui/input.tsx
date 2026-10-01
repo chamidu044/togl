@@ -16,27 +16,29 @@ function FieldGlow({
   invalid?: boolean;
   className?: string;
 }) {
-  const radius = 120;
-  const [visible, setVisible] = React.useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const background = useMotionTemplate`radial-gradient(${visible ? radius : 0}px circle at ${mouseX}px ${mouseY}px, ${invalid ? "#d64545" : "#00a558"}, ${invalid ? "rgba(214,69,69,0.35)" : "rgba(43,81,154,0.55)"} 40%, transparent 80%)`;
+  // The radius stays fixed and hover fades the layer instead: useMotionTemplate
+  // drops falsy values, so a 0 radius produced invalid CSS and the glow stuck.
+  const background = useMotionTemplate`radial-gradient(120px circle at ${mouseX}px ${mouseY}px, ${invalid ? "#d64545" : "#00a558"}, ${invalid ? "rgba(214,69,69,0.35)" : "rgba(43,81,154,0.55)"} 40%, transparent 80%)`;
 
   return (
-    <motion.div
-      style={{ background }}
+    <div
       onMouseMove={({ currentTarget, clientX, clientY }) => {
         const { left, top } = currentTarget.getBoundingClientRect();
         mouseX.set(clientX - left);
         mouseY.set(clientY - top);
       }}
-      onMouseEnter={() => setVisible(true)}
-      onMouseLeave={() => setVisible(false)}
-      className={cn("group/input rounded-[15px] p-[1.5px] transition duration-300", className)}
+      className={cn("group/input relative rounded-[15px] p-[1.5px]", className)}
     >
-      {children}
-    </motion.div>
+      <motion.div
+        aria-hidden
+        style={{ background }}
+        className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover/input:opacity-100"
+      />
+      <div className="relative">{children}</div>
+    </div>
   );
 }
 
