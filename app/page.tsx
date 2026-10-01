@@ -3,7 +3,7 @@ import { Intro } from "@/components/sections/home/intro";
 import { ServicesCarousel } from "@/components/sections/home/services-carousel";
 import { Process } from "@/components/sections/home/process";
 import { Network } from "@/components/sections/home/network";
-import { Industries } from "@/components/sections/home/industries";
+import { AgentNetworks } from "@/components/sections/home/agent-networks";
 import { WhyTogl } from "@/components/sections/home/why-togl";
 import { CtaBand } from "@/components/sections/cta-band";
 
@@ -15,7 +15,7 @@ export default function HomePage() {
       <ServicesCarousel />
       <Process />
       <Network />
-      <Industries />
+      <AgentNetworks />
       <WhyTogl />
       <CtaBand />
     </>

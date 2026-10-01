@@ -28,6 +28,7 @@ export const leadership = {
   ceo: {
     name: "Janaka Alexander",
     title: "Chief Executive Officer",
+    photo: "/images/ceo-janaka-alexander.png",
     summary:
       "An industry veteran with more than 34 years of leadership experience, having held key positions in sales and commercial management.",
   },
@@ -48,15 +49,6 @@ export const contact = {
       label: "Operations office",
       lines: ["No. 125, Ananda Rajakaruna Mawatha", "Colombo 10", "Sri Lanka"],
       mapQuery: "125 Ananda Rajakaruna Mawatha, Colombo 10, Sri Lanka",
-    },
-    {
-      label: "City office",
-      lines: [
-        "No. 280 A, Sri Dhamma Mawatha",
-        "(formerly Campbell Avenue)",
-        "Colombo 10, Sri Lanka",
-      ],
-      mapQuery: "280 Sri Dhamma Mawatha, Colombo 10, Sri Lanka",
     },
   ],
 };
@@ -268,7 +260,7 @@ export const stats = [
   { value: 2011, label: "Moving cargo since", format: "year" as const },
   { value: 100, suffix: "+", label: "Years of combined customs expertise" },
   { value: 34, suffix: "+", label: "Years of industry leadership from our CEO" },
-  { value: 2, label: "Offices in Sri Lanka" },
+  { value: 4, label: "International agent networks" },
 ];
 
 export const processSteps = [
@@ -322,6 +314,18 @@ export const industries = [
   "Perishables",
   "Medical",
   "Beverages",
+];
+
+/** Forwarder networks and associations TOGL belongs to. Logos live in public/networks. */
+export const agentNetworks = [
+  { name: "One World One Network (1WN)", logo: "/networks/1wn.png" },
+  { name: "Freight Midpoint", logo: "/networks/freight-midpoint.png" },
+  { name: "Xpert-Log Freight Forwarder Network", logo: "/networks/xpert-log.png" },
+  { name: "African Freight Bridge Network (AFBN)", logo: "/networks/afbn.png" },
+  {
+    name: "Sri Lanka Logistics & Freight Forwarders Association (SLFFA)",
+    logo: "/networks/slffa.png",
+  },
 ];
 
 export const reasons = [

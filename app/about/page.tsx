@@ -118,7 +118,7 @@ export default function AboutPage() {
               trade consulting.
             </p>
             <p>
-              We operate from two offices in Sri Lanka, offering transportation and
+              We operate from Colombo, Sri Lanka, offering transportation and
               international services that span the globe. Every solution is
               supported by fully web-enabled technology that gives real-time
               visibility of products throughout the supply chain.
@@ -171,6 +171,20 @@ export default function AboutPage() {
               title="Leadership."
               lead="Led by an industry veteran and governed by a board of directors."
             />
+            <div className="relative mt-10 aspect-[4/5] max-w-md overflow-hidden rounded-panel bg-[radial-gradient(120%_80%_at_50%_100%,#dfe8f7_0%,var(--color-mist)_55%,var(--color-pearl)_100%)]">
+              <span
+                aria-hidden
+                className="absolute inset-0 bg-[url(/maps/world-dots-light.svg)] bg-[length:200%_auto] bg-[position:30%_20%] bg-no-repeat opacity-60"
+              />
+              <span aria-hidden className="bg-gradient-orbit absolute inset-x-0 bottom-0 z-10 h-1" />
+              <Image
+                src={leadership.ceo.photo}
+                alt={`${leadership.ceo.name}, ${leadership.ceo.title}`}
+                fill
+                sizes="(min-width: 768px) 448px, 100vw"
+                className="object-contain object-bottom"
+              />
+            </div>
           </div>
           <Reveal className="md:col-span-7">
             <div className="relative overflow-hidden rounded-panel border border-hairline bg-canvas p-7 md:p-10">
